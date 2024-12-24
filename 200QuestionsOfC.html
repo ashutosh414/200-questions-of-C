@@ -1,3 +1,7 @@
+git remote add origin https://github.com/ashutosh414/200-questions-of-C.git
+git branch -M main
+git push -u origin main
+
 1. Write a C program to perform input/output of all basic data types.
 
 2. Write a C program to enter two numbers and find their sum.
@@ -157,6 +161,22 @@ int main()
 10.Write a C program to convert days into years, weeks and days.
 
 
+#include <stdio.h>
+
+int main()
+{
+    int days;
+    printf("Enter the days:");
+    scanf("%d",&days);
+    int year=days/365;
+    int week=(days%365)/7;
+    int remaningDays=((days%365)%7);
+    printf("%d days is %d years %d weeks %d days\n",days,year,week,remaningDays);
+    return 0;
+}
+
+
+
 11. Write a C program to find power of any number x ^ y.
 
 
@@ -180,38 +200,365 @@ int main()
 }
 
 12.Write a C program to enter any number and calculate its square root.
+
+
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int num;
+    float squareroot;
+    printf("Enter the Number:");
+    scanf("%d",&num);
+    squareroot=sqrt(num);
+    printf("square root of %d is %f",num,squareroot);
+    return 0;
+}
+
+
 13.Write a C program to enter two angles of a triangle and find the third angle.
+
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int angle1,angle2;
+    printf("Enter the 1st Angle:");
+    scanf("%d",&angle1);
+    printf("Enter the 2nd Angle:");
+    scanf("%d",&angle2);
+    if (angle2+angle1<180) printf("the 3rd angle of triangle is = %d",180-angle1-angle2);
+    else printf("ERROR:");
+    return 0;
+}
+
 14.Write a C program to enter base and height of a triangle and find its area.
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int height,base;
+    printf("Enter the base of triangle:");
+    scanf("%d",&base);
+    printf("Enter the heigh of triangle:");
+    scanf("%d",&height);
+    printf("the area of triangle is = %f",base*height*0.5);
+    return 0;
+}
+
 15.Write a C program to calculate area of an equilateral triangle.
+
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int side;
+    printf("Enter the one side of equilateral triangle:");
+    scanf("%d",&side);
+
+    printf("the area of equilateral triangle is = %0.3f",side*side*1.732/4);
+    return 0;
+}
+
 16.Write a C program to enter marks of five subjects and calculate total, average
 and percentage.
+
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int marks,totalmarks,totalMarksObt=0;
+    
+    for(int i=1;i<=5;i++)
+    {
+            printf("Enter the marks of subject %d: ",i);
+            scanf("%d",&marks);
+            totalMarksObt+=marks;
+    }
+    printf("Enter the Maximum marks obtain in all subjects: ");
+    scanf("%d",&totalmarks);
+    printf("Average marks is : %d\n",totalMarksObt/5);
+    printf("Percentage is : %i\n%",totalMarksObt*100/totalmarks);
+    return 0;
+}
+
 17.Write a C program to enter P, T, R and calculate Simple Interest.
+
+
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int p;
+    float r,t,i;
+    printf("Enter the principle,time and rate.\n");
+    scanf("%d %f %f",&p,&r,&t);
+    i=p*r*t/100;
+    
+    printf("the simple interest is %0.2f.",i);
+    
+    return 0;
+}
+
 18.Write a C program to enter P, T, R and calculate Compound Interest.
+
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int p,n;
+    float t,r,ci;
+    printf("Enter the principle(p), time(t), rate(r) and number of times interest is compounded (n).\n");
+    scanf("%d %f %f %d",&p,&r,&t,&n);
+    r=r/100;
+    ci=pow(1+r/n,n*t)*p-p;
+    
+    printf("the compound interest is %0.2f.",ci);
+    
+    return 0;
+}
+
 19.Write a C program to find maximum between two numbers.
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int a,b;
+    printf("Enter the num1 and num2.\n");
+    scanf("%d %d",&a,&b);
+    if (a==b) printf("%d is equal to %d",a,b);
+    else if (a>b) printf("%d is Max",a);
+    else if (b>a) printf("%d is Max",b);
+    else printf("Error");
+    
+    return 0;
+}
 20.Write a C program to find maximum between three numbers.
+
+#include<stdio.h>
+int main()
+{
+    int a,b,c;
+    printf("Enter the num1, num2 and num3.\n");
+    scanf("%d%d%d",&a,&b,&c);
+    if (a>=b)
+    {
+        if(a>=c) printf("%d is max",a);
+        else printf("%d is max",c);
+    }
+    else if(b>=c) printf("%d is max",b);
+    else printf("%d is max",c);
+    
+    
+    return 0;
+}
+
 21.Write a C program to check whether a number is negative, positive or zero.
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int a;
+    printf("Enter the num1 : \n");
+    scanf("%d",&a);
+    if (a==0) printf("%d is zero",a);
+    else if (a>0) printf("%d is Positve",a);
+    else if (a<0) printf("%d is Negative",a);
+    else printf("Error");
+    
+    return 0;
+}
 22.Write a C program to check whether a number is divisible by 5 and 11 or not.
+#include<stdio.h>
+int main()
+{
+    int num;
+    printf("Enter the num: \n");
+    scanf("%d",&num);
+    if (num%5==0 && num%11==0) printf("%d is divisible by 5 and 11",num);
+    else printf("%d is NOT divisible by 5 and 11",num);
+    
+    return 0;
+}
 23.Write a C program to check whether a number is even or odd.
+#include<stdio.h>
+int main()
+{
+    int num;
+    printf("Enter the num: \n");
+    scanf("%d",&num);
+    if (num%2==0 ) printf("%d is Even",num);
+    else printf("%d is Odd",num);
+    
+    return 0;
+}
 24.Write a C program to check whether a year is leap year or not.
+#include<stdio.h>
+int main()
+{
+    int year;
+    printf("Enter the year: \n");
+    scanf("%d",&year);
+    if (year%400==0 ) printf("%d is a leap year",year);
+    else if (year%100==0 ) printf("%d is not a leap year",year);
+    else if (year%4==0 ) printf("%d is a leap year",year);
+    else printf("Error");
+    
+    return 0;
+}
 25.Write a C program to check whether a character is alphabet or not.
+#include<stdio.h>
+int main()
+{
+    char c;
+    printf("Enter the element: \n");
+    scanf("%c",&c);
+    if ((c>=65 && c<90 )|| (c>=97 && c <=122)) printf("%c is a alphabet",c);
+    else printf("%c Not a alphabet",c);
+    
+    return 0;
+}
 26.Write a C program to input any alphabet and check whether it is vowel or
 consonant.
+#include<stdio.h>
+int main()
+{
+    char c;
+    printf("Enter the element: \n");
+    scanf("%c",&c);
+    if ((c>=65 && c<90 )|| (c>=97 && c <=122)){
+    if (c=='a'|| c=='A' || c=='e'|| c=='E' || c=='i'|| c=='I' ||c=='o'|| c=='O' || c=='u'|| c=='U') printf("%c is a Vowel",c);
+    else printf("%c is a consonant",c);
+    }
+    else printf("Not a Alphabet");
+    return 0;
+}
 27.Write a C program to input any character and check whether it is alphabet, digit
 or special character.
+#include<stdio.h>
+int main()
+{
+    char c;
+    printf("Enter the element: \n");
+    scanf("%c",&c);
+    if ((c>=65 && c<90 )|| (c>=97 && c <=122)) printf("%c is a alphabet",c);
+    else if (c>=48 && c<=57 ) printf("%c is a digit",c);
+    else printf("%c is a special character",c);
+    
+    return 0;
+}
 28.Write a C program to check whether a character is uppercase or lowercase
 alphabet.
+#include<stdio.h>
+int main()
+{
+    char c;
+    printf("Enter the element: \n");
+    scanf("%c",&c);
+    if (c>=65 && c<90 ) printf("%c is a Upper Case",c);
+    else if (c>=97 && c <=122) printf("%c is a Lower Case",c);
+    else printf("Error");
+    
+    return 0;
+}
 29.Write a C program to input week number and print week day.
-30.Write a C program to input month number and print number of days in that
+#include<stdio.h>
+int main()
+{
+    int weekNum;
+    printf("Enter the Week Number: \n");
+    scanf("%i",&weekNum);
+    switch (weekNum)
+    {
+        case 1:
+        printf("Monday");
+        break;
+        case 2:
+        printf("Tuesday");
+        break;
+        case 3:
+        printf("Wednesday");
+        break;
+        case 4:
+        printf("Thursday");
+        break;
+        case 5:
+        printf("Friday");
+        break;
+        case 6:
+        printf("Saturday");
+        break;
+        case 7:
+        printf("Sunday");
+        break;
+        default:
+        printf("Error");
+    }
+    
+    return 0;
+}
+**30.Write a C program to input month number and print number of days in that
 month.
-31.Write a C program to count total number of notes in given amount.
+**31.Write a C program to count total number of notes in given amount.
 32.Write a C program to input angles of a triangle and check whether triangle is
 valid or not.
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int angle1,angle2,angle3;
+    printf("Enter the 1st Angle:");
+    scanf("%d",&angle1);
+    printf("Enter the 2nd Angle:");
+    scanf("%d",&angle2);
+    printf("Enter the 3rd Angle:");
+    scanf("%d",&angle3);
+    if (angle2+angle1+angle3==180) printf("The Triangle is Valid.");
+    else printf("Triangle is Not Valid:");
+    return 0;
+}
 
 33.Write a C program to input all sides of a triangle and check whether triangle is
 valid or not.
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int side1,side2,side3;
+    printf("Enter the 1st side:");
+    scanf("%d",&side1);
+    printf("Enter the 2nd side:");
+    scanf("%d",&side2);
+    printf("Enter the 3rd side:");
+    scanf("%d",&side3);
+    if (side2+side1>side3 && side3+side1>side2 && side2+side3>side1) printf("The Triangle is Valid.");
+    else printf("Triangle is Not Valid:");
+    return 0;
+}
 34.Write a C program to check whether the triangle is equilateral, isosceles or
 scalene triangle.
-36.Write a C program to calculate profit or loss.
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int side1,side2,side3;
+    printf("Enter the 1st side:");
+    scanf("%d",&side1);
+    printf("Enter the 2nd side:");
+    scanf("%d",&side2);
+    printf("Enter the 3rd side:");
+    scanf("%d",&side3);
+    if (side2+side1>side3 && side3+side1>side2 && side2+side3>side1)
+    {
+        if (side2==side1 && side3==side2) printf("The Triangle is equilateral Traingle.");
+        else if (side1==side2 || side2==side3 ||side1==side3) printf("The Triangle is isosceles Traingle.");
+        else printf("scalene Triangle.");
+    }
+    
+    return 0;
+}
+
+**36.Write a C program to calculate profit or loss.
 37.Write a C program to input marks of five subjects Physics, Chemistry, Biology,
 Mathematics and Computer. Calculate percentage and grade according to
 following:
@@ -221,6 +568,28 @@ Percentage >= 70% : Grade C
 Percentage >= 60% : Grade D
 Percentage >= 40% : Grade E
 Percentage < 40% : Grade F
+
+//input marks of five subjects Physics, Chemistry, Biology,Mathematics and Computer
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    int ph,ch,bi,ma,co;
+    printf("Enter marks of five subjects Physics, Chemistry, Biology,Mathematics and Computer:\n");
+    scanf("%d%d%d%d%d",&ph,&ch,&bi,&ma,&co);
+    int total=ph+ch+bi+ma+co;
+    int percentage=total/5;
+    if (percentage>=90) printf("Grade A");
+    else if (percentage>=80) printf("Grade B");
+    else if (percentage>=70) printf("Grade C");
+    else if (percentage>=60) printf("Grade D");
+    else if (percentage>=40) printf("Grade E");
+    else if (percentage<40 && percentage>=0) printf("Grade F");
+    else printf("Error");
+    
+    return 0;
+}
+
 38.Write a C program to input basic salary of an employee and calculate its Gross
 salary according to following:
 Basic Salary <= 10000 : HRA = 20%, DA = 80%
@@ -234,6 +603,42 @@ For next 100 units Rs. 1.20/unit
 For unit above 250 Rs. 1.50/unit
 An additional surcharge of 20% is added to the bill
 40.Write a C program to print day of week name using switch case.
+
+#include<stdio.h>
+int main()
+{
+    int weekNum;
+    printf("Enter the Week Number: \n");
+    scanf("%i",&weekNum);
+    switch (weekNum)
+    {
+        case 1:
+        printf("Monday");
+        break;
+        case 2:
+        printf("Tuesday");
+        break;
+        case 3:
+        printf("Wednesday");
+        break;
+        case 4:
+        printf("Thursday");
+        break;
+        case 5:
+        printf("Friday");
+        break;
+        case 6:
+        printf("Saturday");
+        break;
+        case 7:
+        printf("Sunday");
+        break;
+        default:
+        printf("Error");
+    }
+    
+    return 0;
+}
 41.Write a C program print total number of days in a month using switch case.
 42.Write a C program to check whether an alphabet is vowel or consonant using
 switch case.
