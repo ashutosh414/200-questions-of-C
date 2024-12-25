@@ -654,7 +654,36 @@ while loop
 50.Write a C program to print all alphabets from a to z. - using while loop
 51.Write a C program to print all even numbers between 1 to 100. - using while loop
 52.Write a C program to print all odd number between 1 to 100.
+
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    printf("enter Number %d: ",i);
+    scanf("%d",&num);
+    for(int i=1;i<=num;i++) 
+    {
+     if (i%2! = 0) printf("%d ",num);
+    }
+    return 0;
+}
 53.Write a C program to find sum of all natural numbers between 1 to n.
+
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    printf("enter Number %d: ",i);
+    scanf("%d",&num);
+    for(int i=1;i<=num;i++) 
+    {
+     result+=num;
+    }
+    printf("the result is %d",result);
+    return 0;
+}
 
 54.Write a C program to find sum of all even numbers between 1 to n.
 55.Write a C program to find sum of all odd numbers between 1 to n.
@@ -811,6 +840,21 @@ Input the fifth number: 5
 Expected Output:
 Sum of all odd values: 46
 
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    for(int i=1;i<=5;i++) 
+    {
+        printf("enter Number %d: ",i);
+        scanf("%d",&num);
+        if(num%2!=0) result+=num;
+    }
+    printf("the result is %d",result);
+    return 0;
+}
+
 - Write a C program that reads three floating values and check if it is possible to make a triangle
 with them. Also calculate the perimeter of the triangle if the said values are valid.
 Test Data :
@@ -835,11 +879,56 @@ Input a number between 1 to 12 to get the month name: 8
 Expected Output:
 August
 
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+
+int main()
+{
+    int num;
+    printf("enter the Month Number: ");
+    scanf("%i",&num);
+    
+    if (num==1) printf("January");
+    else if (num==2) printf("February");
+    else if (num==3) printf("March");
+    else if (num==4) printf("April");
+    else if (num==5) printf("May");
+    else if (num==6) printf("June");
+    else if (num==7) printf("July");
+    else if (num==8) printf("August");
+    else if (num==9) printf("September");
+    else if (num==10) printf("October");
+    else if (num==11) printf("November");
+    else if (num==12) printf("December");
+    else printf("Error");
+    return 0;
+}
+
+
 - Write a C program that prints all even numbers between 1 and 50 (inclusive).
 Test Data :
 Even numbers between 1 to 50 (inclusive):
 Expected Output:
 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50
+
+#include <stdio.h>
+
+int main()
+{
+    int beginNum,endNum;
+    printf("enter the Starting and Ennding Number: ");
+    scanf("%i%i",&beginNum,&endNum);
+    for(int i=beginNum;i<=endNum;i++) if(i%2==0) printf("%d ",i);
+    
+    return 0;
+}
 
 - Write a C program that read 5 numbers and counts the number of positive numbers and
 negative numbers.
@@ -875,6 +964,21 @@ Input the fifth number: 13
 Expected Output:
 Sum of all odd values: 34
 
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    for(int i=1;i<=5;i++) 
+    {
+        printf("enter Number %d: ",i);
+        scanf("%d",&num);
+        if(num%2 != 0) result+=num;
+    }
+    printf("the result is %d",result);
+    return 0;
+}
+
 - Write a C program to find and print the square of each one of the even values from 1 to a
 specified value.
 Test Data :
@@ -899,3 +1003,27 @@ Expected Output:
 28
 53
 78
+
+
+
+
+
+
+
+
+sample
+
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    for(int i=1;i<=5;i++) 
+    {
+        printf("enter Number %d: ",i);
+        scanf("%d",&num);
+        if(num>0) result+=num;
+    }
+    printf("the result is %d",result);
+    return 0;
+}
