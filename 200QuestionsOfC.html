@@ -4,6 +4,27 @@ git push -u origin main
 
 1. Write a C program to perform input/output of all basic data types.
 
+#include <stdio.h>
+
+int main()
+{
+    int num;
+    char ch;
+    float val;
+    printf("Input integer a: ");
+    scanf("%d",&num);
+    printf("Input character ch: ");
+    scanf(" %c",&ch);
+    printf("Input float value: ");
+    scanf("%f",&val);
+
+    printf("integer a: %d\n",num);
+    printf("character ch: %c\n",ch);
+    printf("float value: %f\n",val);
+
+    return 0;
+}
+
 2. Write a C program to enter two numbers and find their sum.
 
 
@@ -497,9 +518,9 @@ int main()
     
     return 0;
 }
-**30.Write a C program to input month number and print number of days in that
+^^^30.Write a C program to input month number and print number of days in that
 month.
-**31.Write a C program to count total number of notes in given amount.
+^^^31.Write a C program to count total number of notes in given amount.
 32.Write a C program to input angles of a triangle and check whether triangle is
 valid or not.
 #include <stdio.h>
@@ -590,7 +611,7 @@ int main()
     return 0;
 }
 
-38.Write a C program to input basic salary of an employee and calculate its Gross
+^^^38.Write a C program to input basic salary of an employee and calculate its Gross
 salary according to following:
 Basic Salary <= 10000 : HRA = 20%, DA = 80%
 Basic Salary <= 20000 : HRA = 25%, DA = 90%
@@ -639,7 +660,7 @@ int main()
     
     return 0;
 }
-41.Write a C program print total number of days in a month using switch case.
+^^^41.Write a C program print total number of days in a month using switch case.
 42.Write a C program to check whether an alphabet is vowel or consonant using
 switch case.
 43.Write a C program to find maximum between two numbers using switch case.
@@ -844,7 +865,7 @@ int main()
     printf("the sum of first and last digit is %d\n",num%10+first);
     return 0;
 }
-60.Write a C program to swap first and last digits of a number.
+^^^60.Write a C program to swap first and last digits of a number.
 61.Write a C program to calculate sum of digits of a number.
 #include <stdio.h>
 
@@ -945,7 +966,7 @@ int main()
     }
     return 0;
 }
-66.Write a C program to enter a number and print it in words.
+^^^66.Write a C program to enter a number and print it in words.
 67.Write a C program to print all ASCII character with their values.
 #include <stdio.h>
 
@@ -1006,8 +1027,8 @@ int main()
     printf("%i",result);
     return 0;
 }
-71.Write a C program to find HCF (GCD) of two numbers.
-72.Write a C program to find LCM of two numbers.
+^^^71.Write a C program to find HCF (GCD) of two numbers.
+^^^72.Write a C program to find LCM of two numbers.
 73.Write a C program to check whether a number is Prime number or not.
 
 #include <stdio.h>
@@ -1624,12 +1645,88 @@ Expected Output:
 Root1 = -0.60000
 Root2 = -0.80000
 
+#include <stdio.h>
+
+double fabsa(double num)
+{
+    if(num<0) return -1.0*num;
+    else if(num>0) return num;
+    else printf("error fabsa");
+}
+
+double sqroot(double num)
+{
+    if (num<0)
+    {
+        printf("error: the b24ac is negative");
+        return -1;
+    }
+    else if(num==0) return 0;
+    
+    double guess=num/2.0;
+    double errormargin=0.000001;
+    
+    while(1)
+    {
+        double newguess=(guess+num/guess)/2.0;
+        if(fabsa(newguess-guess)<errormargin) break;
+        guess=newguess;
+    }
+    return guess;
+    
+}
+
+double b24ac(int a,int b,int c)
+{
+    double result= sqroot(b*b-4*a*c);
+    if(result != -1) return result;
+    else printf("Error be4ac");
+}
+
+int main()
+{
+    int a,b,c;
+    printf("Input integer a: ");
+    scanf("%d",&a);
+    printf("Input integer b: ");
+    scanf("%d",&b);
+    printf("Input integer c: ");
+    scanf("%d",&c);
+    double result1 = (-1.0*b+b24ac(a,b,c))/(2.0*a);
+    double result2 = (-1.0*b-b24ac(a,b,c))/(2.0*a);
+    printf("Root1 =  %lf\n",result1);
+    printf("Root2 =  %lf\n",result2);
+    return 0;
+}
+
+
 - Write a C program that reads an integer and check the specified range where it belongs. Print
 an error message if the number is negative and greater than 80.
 Test Data :
 Input an integer: 15
 Expected Output:
 Range [0, 20]
+
+#include <stdio.h>
+
+int main()
+{
+    int num1;
+    printf("Input integer: ");
+    scanf("%d",&num1);
+    int copyNum=num1;
+    if (num1>0 && num1<=80) 
+    {
+        while(copyNum%10!=0)
+        {
+            copyNum++;
+        }
+        printf("Range[0, %d]",copyNum);
+    }
+    else printf("Error ");
+    return 0;
+}
+
 
 - Write a C program that read 5 numbers and sum of all odd values between them.
 Test Data :
@@ -1666,12 +1763,48 @@ Input the third number: 35
 Expected Output:
 Perimeter = 75.0
 
+#include <stdio.h>
+
+int main()
+{
+    int num1,num2,num3,count=1,pNum=0,nNum=0;
+    printf("Input integer: ");
+    scanf("%d",&num1);
+    printf("Input integer: ");
+    scanf("%d",&num2);
+    printf("Input integer: ");
+    scanf("%d",&num3);
+    
+    if (num1+num2 >num3 && num1+num3 >num2 && num3+num2 >num1)
+    {
+        printf("Perimeter = %0.2f",1.0*(num1+num2+num3));
+    }
+    else printf("Not multiplied ");
+    return 0;
+}
+
+
 - Write a C program that reads two integers and checks whether they are multiplied or not.
 Test Data :
 Input the first number: 5
 Input the second number: 15
 Expected Output:
 Multiplied!
+
+#include <stdio.h>
+int main()
+{
+    int num1,num2,count=1,pNum=0,nNum=0;
+    printf("Input integer: ");
+    scanf("%d",&num1);
+    printf("Input integer: ");
+    scanf("%d",&num2);
+    
+    if (num1%num2==0 || num2%num1==0) printf("Multiplied ");
+    else printf("Not multiplied ");
+    return 0;
+}
+
 
 - Write a C program that reads an integer between 1 and 12 and print the month of the year in
 English.
@@ -1680,14 +1813,6 @@ Input a number between 1 to 12 to get the month name: 8
 Expected Output:
 August
 
-/******************************************************************************
-
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
-C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
-Code, Compile, Run and Debug online from anywhere in world.
-
-*******************************************************************************/
 #include <stdio.h>
 
 int main()
@@ -1743,6 +1868,25 @@ Expected Output:
 Number of positive numbers: 3
 Number of negative numbers: 2
 
+#include <stdio.h>
+
+int main()
+{
+    int num,count=1,pNum=0,nNum=0;
+    while(count<=5)
+    {
+        printf("Input integer %d: ",count);
+        scanf("%d",&num);
+        if (num>0) pNum=pNum+1;
+        if (num<0) nNum=nNum+1;
+        count++;
+    }
+    printf("Number of positive numbers: %d\n",pNum);
+    printf("Number of negative numbers: %d",nNum);
+    return 0;
+}
+
+
 - Write a C program that read 5 numbers and counts the number of positive numbers and print
 the average of all positive values.
 Test Data :
@@ -1754,6 +1898,27 @@ Input the fifth number: 25
 Expected Output:
 Number of positive numbers: 4
 Average value of the said positive numbers: 12.00
+
+#include <stdio.h>
+
+int main()
+{
+    int num,count=1,sum=0,total=0;
+    while(count<=5)
+    {
+        printf("Input integer %d: ",count);
+        scanf("%d",&num);
+        if (num>0)
+        {
+            sum=sum+num;
+            total=total+1;
+        }
+        count+=1;
+    }
+    printf("Average value of the said positive numbers: %0.2f",1.0*sum/total);
+    return 0;
+}
+
 
 - Write a C program that read 5 numbers and sum of all odd values between them.
 Test Data :
@@ -1787,12 +1952,55 @@ List of square of each one of the even values from 1 to a 4 :
 Expected Output:
 2^2 = 4
 4^2 = 16
+
+#include <stdio.h>
+
+int main()
+{
+    int num,count=2;
+    printf("Input an integer: ");
+    scanf("%d",&num);
+    while(count<=num)
+    {
+        printf("%d ^ 2 = %d\n",count,count*count);
+        count+=2;
+    }
+
+    return 0;
+}
+
+
 - Write a C program to check whether a given integer is positive even, negative even, positive
 odd or negative odd. Print even if the number is 0.
 Test Data :
 Input an integer: 13
 Expected Output:
 Positive Odd
+
+#include <stdio.h>
+
+int main()
+{
+    int num;
+    printf("Input an integer: ");
+    scanf("%d",&num);
+    if(num==0) printf("Number is 0");
+    else if(num>0)
+    {
+        if(num%2==0) printf("Positive Even");
+        else printf("Positive Odd");
+    }
+    else if(num<0)
+    {
+        if(num%2==0) printf("Negative Even");
+        else printf("Negative Odd");
+    }
+    else printf("Error");
+
+    return 0;
+}
+
+
 
 - Write a C program to print all numbers between 1 to 100 which divided by a specified number
 and the remainder will be 3.
@@ -1805,7 +2013,20 @@ Expected Output:
 53
 78
 
+#include <stdio.h>
 
+int main()
+{
+    int num;
+    printf("Input an integer: ");
+    scanf("%d",&num);
+    for(int i=2;i<100;i++)
+    {
+        if(i%num==3) printf("%d\n",i);
+    }
+
+    return 0;
+}
 
 
 
