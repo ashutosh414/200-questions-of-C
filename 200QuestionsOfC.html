@@ -649,10 +649,70 @@ switch case.
 46.Write a C program to find roots of a quadratic equation using switch case.
 47.Write a C program to create Simple Calculator using switch case.
 48.Write a C program to print all natural numbers from 1 to n. - using while loop
+
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    printf("enter Number: ");
+    scanf("%d",&num);
+    int i=1;
+    while(i<=num)
+    {
+     printf("%d ",i);
+     i++;
+    }
+    return 0;
+}
+
 49.Write a C program to print all natural numbers in reverse (from n to 1). - using
 while loop
+
+#include <stdio.h>
+int main()
+{
+    int num,result=0;
+    printf("enter Number: ");
+    scanf("%d",&num);
+    int i=num;
+    while(i>=1)
+    {
+     printf("%d ",i);
+     i--;
+    }
+    return 0;
+}
 50.Write a C program to print all alphabets from a to z. - using while loop
+#include <stdio.h>
+
+int main()
+{
+
+    for(int i=97;i<=122;i++) 
+    {
+     printf("%c ",i);
+    }
+    return 0;
+}
+
 51.Write a C program to print all even numbers between 1 to 100. - using while loop
+
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    printf("enter Number: ");
+    scanf("%d",&num);
+    int i=1;
+    while(i<=num)
+    {
+     if(i%2 == 0) printf("%d ",i);
+     i++;
+    }
+    return 0;
+}
 52.Write a C program to print all odd number between 1 to 100.
 
 #include <stdio.h>
@@ -660,14 +720,15 @@ while loop
 int main()
 {
     int num,result=0;
-    printf("enter Number %d: ",i);
+    printf("enter Number: ");
     scanf("%d",&num);
     for(int i=1;i<=num;i++) 
     {
-     if (i%2! = 0) printf("%d ",num);
+     if(i%2 != 0) printf("%d ",i);
     }
     return 0;
 }
+
 53.Write a C program to find sum of all natural numbers between 1 to n.
 
 #include <stdio.h>
@@ -675,7 +736,7 @@ int main()
 int main()
 {
     int num,result=0;
-    printf("enter Number %d: ",i);
+    printf("enter Number :");
     scanf("%d",&num);
     for(int i=1;i<=num;i++) 
     {
@@ -686,34 +747,587 @@ int main()
 }
 
 54.Write a C program to find sum of all even numbers between 1 to n.
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    printf("enter Number: ");
+    scanf("%d",&num);
+    for(int i=1;i<=num;i++) 
+    {
+     if(i%2==0) result+=num;
+    }
+    printf("the result is %d",result);
+    return 0;
+}
 55.Write a C program to find sum of all odd numbers between 1 to n.
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    printf("enter Number: ");
+    scanf("%d",&num);
+    for(int i=1;i<=num;i++) 
+    {
+     if(i%2!=0) result+=num;
+    }
+    printf("the result is %d",result);
+    return 0;
+}
 56.Write a C program to print multiplication table of any number.
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    printf("enter Number: ");
+    scanf("%d",&num);
+    for(int i=1;i<=10;i++) 
+    {
+    printf("%d\n",i*num);
+    }
+    
+    return 0;
+}
 57.Write a C program to count number of digits in a number.
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    printf("enter Number: ");
+    scanf("%d",&num);
+    int copyNum=num,count=0;
+    while(copyNum>0)
+    {
+        copyNum/=10;
+        count++;
+    }
+    printf("the result is %d",count);
+    return 0;
+}
 58.Write a C program to find first and last digit of a number.
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    printf("enter Number: ");
+    scanf("%d",&num);
+    int copyNum=num,count=0,first=0;
+    while(copyNum>0)
+    {
+        copyNum/=10;
+        count++;
+        if(copyNum<10) first=copyNum;
+    }
+    printf("the last digit is %d\n",num%10);
+    printf("the first digit is %d\n",first);
+    return 0;
+}
 59.Write a C program to find sum of first and last digit of a number.
+#include <stdio.h>
+
+int main()
+{
+    int num;
+    printf("enter Number: ");
+    scanf("%d",&num);
+    int copyNum=num,first=0;
+    while(copyNum>0)
+    {
+        if(copyNum<10) first=copyNum;
+        copyNum/=10;
+    }
+    printf("the sum of first and last digit is %d\n",num%10+first);
+    return 0;
+}
 60.Write a C program to swap first and last digits of a number.
 61.Write a C program to calculate sum of digits of a number.
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    printf("enter Number: ");
+    scanf("%d",&num);
+    int copyNum=num,count=0,first=0,last=num%10;
+    while(copyNum>0)
+    {
+        result+=copyNum%10;
+        copyNum/=10;
+        count++;
+        
+    }
+    printf("the sum of digits is %d\n",result);
+    return 0;
+}
 62.Write a C program to calculate product of digits of a number.
+#include <stdio.h>
+
+int main()
+{
+    int num,result=1;
+    printf("enter Number: ");
+    scanf("%d",&num);
+    int copyNum=num,count=0,first=0,last=num%10;
+    while(copyNum>0)
+    {
+        result*=copyNum%10;
+        copyNum/=10;
+        count++;
+        
+    }
+    printf("the product of digits is %d\n",result);
+    return 0;
+}
 63.Write a C program to enter a number and print its reverse.
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    printf("enter Number: ");
+    scanf("%d",&num);
+    int copyNum=num,count=0,first=0,last=num%10;
+    while(copyNum>0)
+    {
+        result=result*10+copyNum%10;
+        copyNum/=10;
+        count++;
+        
+    }
+    printf("the product of digits is %d\n",result);
+    return 0;
+}
 64.Write a C program to check whether a number is palindrome or not.
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    printf("enter Number: ");
+    scanf("%d",&num);
+    int copyNum=num,count=0,first=0,last=num%10;
+    while(copyNum>0)
+    {
+        result=result*10+copyNum%10;
+        copyNum/=10;
+        count++;
+        
+    }
+    if (result==num) printf("the num is Palindrom ");
+    else printf("Not Palindrom");
+    return 0;
+}
 65.Write a C program to find frequency of each digit in a given integer.
+#include <stdio.h>
+
+int main()
+{
+    int num,result=0;
+    printf("enter Number: ");
+    scanf("%d",&num);
+    int arr[10];
+    int copyNum=num,count=0,first=0,last=num%10;
+    while(copyNum>0)
+    {
+        result=copyNum%10;
+        arr[result]+=1;
+        copyNum/=10;
+        
+    }
+    for(int i=0;i<10;i++)
+    {
+        printf("%i   ----> %d\n",i,arr[i]);
+    }
+    return 0;
+}
 66.Write a C program to enter a number and print it in words.
 67.Write a C program to print all ASCII character with their values.
+#include <stdio.h>
+
+int main()
+{
+
+    for(int i=0;i<=126;i++)
+    {
+        printf("%i   ----> %c\n",i,i);
+    }
+    return 0;
+}
 68.Write a C program to find power of a number using for loop.
+#include <stdio.h>
+
+int main()
+{
+    int num,power,result=1;
+    printf("Enter the number and power: ");
+    scanf("%d %d",&num,&power);
+
+    for(int i=1;i<=power;i++)
+    {
+        result=result*num;
+    }
+    printf("%i ^ %i   ----> %i\n",num,power,result);
+    return 0;
+}
 69.Write a C program to find all factors of a number.
+#include <stdio.h>
+
+int main()
+{
+    int num,power,result=1;
+    printf("Enter the number: ");
+    scanf("%d",&num);
+
+    for(int i=1;i<=num;i++)
+    {
+       if(num%i==0) printf("%i ",i);
+    }
+    printf("%i",num);
+    return 0;
+}
 70.Write a C program to calculate factorial of a number.
+#include <stdio.h>
+
+int main()
+{
+    int num,power,result=1;
+    printf("Enter the number: ");
+    scanf("%d",&num);
+
+    for(int i=1;i<=num;i++)
+    {
+       result=result*i;
+    }
+    printf("%i",result);
+    return 0;
+}
 71.Write a C program to find HCF (GCD) of two numbers.
 72.Write a C program to find LCM of two numbers.
 73.Write a C program to check whether a number is Prime number or not.
+
+#include <stdio.h>
+
+int main()
+{
+    int num,power,result=0;
+    printf("Enter the number: ");
+    scanf("%d",&num);
+
+    for(int i=2;i*i<num;i++)
+    {
+       if(num%i==0) 
+       {
+           result+=1;
+           break;
+       }
+    }
+    if (result==0) printf("%i is prime",num);
+    else printf("Not Prime");
+    return 0;
+}
 74.Write a C program to print all Prime numbers between 1 to n.
+#include <stdio.h>
+
+int main()
+{
+    int num;
+    printf("Enter the number: ");
+    scanf("%d",&num);
+    for(int j=2;j<=num;j++)
+    {
+        int result=0;
+        for(int i=2;i*i<=j;i++)
+        {
+           if(j%i==0) 
+           {
+               result+=1;
+               break;
+           }
+           
+        }
+        if (result==0) printf("%i ",j);
+    }
+    
+    return 0;
+}
 75.Write a C program to find sum of all prime numbers between 1 to n.
+#include <stdio.h>
+
+int main()
+{
+    int num,sum=0;
+    printf("Enter the number: ");
+    scanf("%d",&num);
+    for(int j=2;j<=num;j++)
+    {
+        int result=0;
+        for(int i=2;i*i<=j;i++)
+        {
+           if(j%i==0) 
+           {
+               result+=1;
+               break;
+           }
+           
+        }
+        if (result==0) sum=sum+j;
+    }
+    printf("%d",sum);
+    
+    return 0;
+}
 76.Write a C program to find all prime factors of a number.
+
+#include <stdio.h>
+
+int isPrime(int num)
+{
+    int count=0;
+    for(int i=2;i*i<=num;i++)
+    {
+        if(num%i==0)
+        {
+            count++;
+            break;
+        }
+    }
+    if (count==0) return 0;
+    else return 1;
+    
+}
+
+int main()
+{
+    printf("Enter the num: ");
+    int num;
+    scanf("%d",&num);
+    for(int i=2;i<=num;i++)
+    {
+        if(num%i==0 && isPrime(i)==0) printf("%d ",i);
+    }
+    return 0;
+}
+
 77.Write a C program to check whether a number is Armstrong number or not.
+#include <stdio.h>
+
+int power(int base,int power)
+{
+    int result=1;
+    for(int i=1;i<=power;i++)
+    {
+        result=result*base;
+    }
+    return result;
+}
+
+int isArmstrong(int num)
+{
+    int copyNum=num,count=0,result=0;
+    while(copyNum>0)
+    {
+        count++;
+        copyNum/=10;
+    }
+    copyNum=num;
+    while(copyNum>0)
+    {
+        result=result+power((copyNum%10),count);
+        copyNum/=10;
+    }
+    if(result==num) printf("Amstrong Number %d",num);
+    else printf("Not Armstrong Number");
+    return 0;
+}
+
+int main()
+{
+    printf("Enter the num: ");
+    int num;
+    scanf("%d",&num);
+    isArmstrong(num);
+    return 0;
+}
+
 78.Write a C program to print all Armstrong numbers between 1 to n.
+
+#include <stdio.h>
+
+int power(int base,int power)
+{
+    int result=1;
+    for(int i=1;i<=power;i++)
+    {
+        result=result*base;
+    }
+    return result;
+}
+
+int isArmstrong(int num)
+{
+    int copyNum=num,count=0,result=0;
+    while(copyNum>0)
+    {
+        count++;
+        copyNum/=10;
+    }
+    copyNum=num;
+    while(copyNum>0)
+    {
+        result=result+power((copyNum%10),count);
+        copyNum/=10;
+    }
+    if(result==num) printf("%d ",num);
+    return 0;
+}
+
+int main()
+{
+    printf("Enter the num: ");
+    int num;
+    scanf("%d",&num);
+    for (int i=2;i<num;i++)
+    {
+        isArmstrong(i);
+    }
+    return 0;
+}
+
 79.Write a C program to check whether a number is Perfect number or not.
+#include <stdio.h>
+
+int isPerfactNum(int num)
+{
+    int copyNum=num,result=0;
+    for(int i=1;i<=num/2 + 1;i++)
+    {
+        if(num%i==0)
+        {
+            result=result+i;
+        }
+    }
+    if (result==num) printf("%d is perfact number",num);
+    else printf("%d is not perfact Number",num);
+    return 0;
+}
+
+
+int main()
+{
+    printf("Enter the num: ");
+    int num;
+    scanf("%d",&num);
+    isPerfactNum(num);
+    return 0;
+}
+
 80.Write a C program to print all Perfect numbers between 1 to n.
+#include <stdio.h>
+
+int isPerfactNum(int num)
+{
+    int copyNum=num,result=0;
+    for(int i=1;i<=num/2 + 1;i++)
+    {
+        if(num%i==0)
+        {
+            result=result+i;
+        }
+    }
+    if (result==num) printf("%d ",num);
+    return 0;
+}
+
+
+int main()
+{
+    printf("Enter the num: ");
+    int num;
+    scanf("%d",&num);
+    for (int i=2;i<num;i++)
+    {
+        isPerfactNum(i);
+    }
+    return 0;
+}
+
+
 81.Write a C program to check whether a number is Strong number or not.
+
+#include <stdio.h>
+
+int factorial(int num)
+{
+    int result=1;
+    for(int i=1;i<=num;i++) result=result*i;
+    return result;
+}
+
+int isStrongNum(int num)
+{
+    int copyNum=num,result=0;
+    while(copyNum>0)
+    {
+        result=result+factorial(copyNum%10);
+        copyNum/=10;
+    }
+    if (result==num) printf("%d is Strong number",num);
+    else printf("%d is NOT Strong number",num);
+    return 0;
+}
+
+
+int main()
+{
+    printf("Enter the num: ");
+    int num;
+    scanf("%d",&num);
+    isStrongNum(num);
+    
+    return 0;
+}
+
 82.Write a C program to print all Strong numbers between 1 to n.
+
+#include <stdio.h>
+
+int factorial(int num)
+{
+    int result=1;
+    for(int i=1;i<=num;i++) result=result*i;
+    return result;
+}
+
+int isStrongNum(int num)
+{
+    int copyNum=num,result=0;
+    while(copyNum>0)
+    {
+        result=result+factorial(copyNum%10);
+        copyNum/=10;
+    }
+    if (result==num) printf("%d ",num);
+    return 0;
+}
+
+
+int main()
+{
+    printf("Enter the num: ");
+    int num;
+    scanf("%d",&num);
+    for (int i=2;i<num;i++)
+    {
+        isStrongNum(i);
+    }
+    return 0;
+}
+
 83.Write a C program to print Fibonacci series up to n terms.
 Write a C program that accepts two item’s weight (floating points' values ) and number of
 purchase (floating points' values) and calculate the average value of the items.
@@ -724,6 +1338,25 @@ Weight - Item2: 25
 No. of item2: 4
 Expected Output:
 Average Value = 19.444444
+
+#include <stdio.h>
+int main()
+{
+    float numOfItem,Weight,totalitem=0,sum=0,avg=0;
+    for(int i=1;i<=2;i++)
+    {
+        printf("Enter the Weight of item %i : ",i);
+        scanf("%f",&Weight);
+        printf("Enter the number of item %d : ",i);
+        scanf("%f",&numOfItem);
+        sum=sum+Weight*numOfItem;
+        totalitem=totalitem+numOfItem;
+    }
+    avg=sum/totalitem;
+    printf("the average Value is : %f",avg);
+    return 0;
+}
+
 -Write a C program that accepts an employee's ID, total worked hours of a month and the
 
 amount he received per hour. Print the employee's ID and salary (with two decimal places) of a
@@ -735,6 +1368,23 @@ Salary amount/hr: 15000
 Expected Output:
 Employees ID = 0342
 Salary = U$ 120000.00
+
+#include <stdio.h>
+int main()
+{
+    int hrs,salaryPHR;
+    char id[11];
+
+    printf("Input the Employees ID : ");
+    scanf("%s",id);
+    printf("Input the working hrs :");
+    scanf("%d",&hrs);
+    printf("Salary amount/hr:");
+    scanf("%d",&salaryPHR);
+    printf("Employees ID = %s\n",id);
+    printf("Salary = %d",hrs*salaryPHR);
+    return 0;
+}
 -Write a C program to calculate a bike’s average consumption from the given total distance
 (integer value) traveled (in km) and spent fuel (in liters, float number – 2 decimal point).
 Test Data :
@@ -742,6 +1392,18 @@ Input total distance in km: 350
 Input total fuel spent in liters: 5
 Expected Output:
 Average consumption (km/lt) 70.000
+
+#include <stdio.h>
+int main()
+{
+    float km,ltr;
+    printf("Input total distance in km:");
+    scanf("%f",&km);
+    printf("Input total fuel spent in liters:");
+    scanf("%f",&ltr);
+    printf("Average consumption (km/lt) = %0.3f\n",km/ltr);
+    return 0;
+}
 -Write a C program to convert specified days into years, weeks and days.
 Note: Ignore leap year.
 Test Data :
@@ -750,12 +1412,44 @@ Expected Output :
 Years: 3
 Weeks: 33
 Days: 3
+
+#include <stdio.h>
+int main()
+{
+    int days,remDays;
+    printf("Number of days :");
+    scanf("%d",&days);
+    printf("Years: %d\n",days/365);
+    remDays=days%365;
+    printf("Weeks: %d\n",remDays/7);
+    remDays=remDays%7;
+    printf("Days: %d\n",remDays);
+    return 0;
+}
 -Write a C program to convert a given integer (in seconds) to hours, minutes and seconds.
 Test Data :
 Input seconds: 25300
 Expected Output:
 There are:
 H:M:S - 7:1:40
+
+#include <stdio.h>
+int main()
+{
+    int sec,hour,min,remSec;
+    printf("Input seconds :");
+    scanf("%d",&sec);
+    hour=sec/3600;
+    remSec=sec%3600;
+    
+    min=remSec/60;
+    remSec=remSec%60;
+    
+    printf("H:M:S %d:%d:%d",hour,min,remSec);
+
+    return 0;
+}
+
 -Write a C program to convert a given integer (in days) to years, months and days, assumes
 that all months have 30 days and all years have 365 days.
 Test Data :
@@ -764,6 +1458,20 @@ Expected Output:
 6 Year(s)
 11 Month(s)
 15 Day(s)
+
+#include <stdio.h>
+int main()
+{
+    int days,remDays;
+    printf("Number of days :");
+    scanf("%d",&days);
+    printf("Year: %d\n",days/365);
+    remDays=days%365;
+    printf("Month: %d\n",remDays/30);
+    remDays=remDays%30;
+    printf("Days: %d\n",remDays);
+    return 0;
+}
 
 -Write a C program to find all numbers which are dividing by 7 and the remainder is equal to 2 or
 3 between two given integer numbers.
@@ -777,6 +1485,19 @@ Expected Output:
 38
 44
 
+#include <stdio.h>
+int main()
+{
+    int num1,num2;
+    printf("Num 1 and Num 2:");
+    scanf("%d%d",&num1,&num2);
+    for(int i=num1;i<num2;i++)
+    {
+        if(i%7 ==2 ||i%7 ==3) printf("%d ",i);
+    }
+    return 0;
+}
+
 - Write a C program that accepts three integers and find the maximum of three.
 Test Data :
 Input the first integer: 25
@@ -784,6 +1505,24 @@ Input the second integer: 35
 Input the third integer: 15
 Expected Output:
 Maximum value of three integers: 35
+
+#include <stdio.h>
+int main()
+{
+    int a,b,c;
+    printf("Enter the num1, num2 and num3.\n");
+    scanf("%d%d%d",&a,&b,&c);
+    if (a>=b)
+    {
+        if(a>=c) printf("Maximum value of three integers: %d",a);
+        else printf("Maximum value of three integers: %d",c);
+    }
+    else if(b>=c) printf("Maximum value of three integers: %d",b);
+    else printf("Maximum value of three integers: %d",c);
+    
+    
+    return 0;
+}
 
 - Write a C program to calculate a bike’s average consumption from the given total distance
 (integer value) traveled (in km) and spent fuel (in liters, float number – 2 decimal point).
@@ -793,6 +1532,19 @@ Input total fuel spent in liters: 5
 Expected Output:
 Average consumption (km/lt) 70.000
 
+#include <stdio.h>
+int main()
+{
+    int km;
+    float ltr;
+    printf("Input total distance in km:");
+    scanf("%d",&km);
+    printf("Input total fuel spent in liters:");
+    scanf("%0.2f",&ltr);
+    printf("Average consumption (km/lt) = %0.3f\n",km/ltr);
+    return 0;
+}
+
 - Write a C program to calculate the distance between the two points.
 Test Data :
 Input x1: 25
@@ -801,6 +1553,36 @@ Input x2: 35
 Input y2: 10
 Expected Output:
 Distance between the said points: 11.1803
+
+#include <stdio.h>
+#include <math.h>
+int power(int base,int power)
+{
+    int result=1;
+    for(int i=1;i<=power;i++)
+    {
+        result=result*base;
+    }
+    return result;
+}
+
+int main()
+{
+    float x1,x2,y1,y2,result;
+    printf("Input x1:");
+    scanf("%f",&x1);
+    printf("Input y1:");
+    scanf("%f",&y1);
+    printf("Input x2:");
+    scanf("%f",&x2);
+    printf("Input y2:");
+    scanf("%f",&y2);
+    result=sqrt(power(x2-x1,2)+power(y2-y1,2));
+    printf("Distance between the said points: %0.4f\n",result);
+    return 0;
+}
+
+
 
 - Write a C program that accepts 4 integers p, q, r, s from the user where q, r and s are positive
 
@@ -812,6 +1594,25 @@ Input the third integer: 15
 Input the fourth integer: 46
 Expected Output:
 Wrong values
+
+#include <stdio.h>
+int main()
+{
+    int p,q,r,s,result;
+    printf("Input the first integer: ");
+    scanf("%d",&p);
+    printf("Input the second integer: ");
+    scanf("%d",&q);
+    printf("Input the third integer: ");
+    scanf("%d",&r);
+    printf("Input the fourth integer: ");
+    scanf("%d",&s);
+    
+    if((s>0 && q>0 && r>0 && p%2==0) && q>r && s>p && r+s>p+q ) printf("Correct Values");
+    else printf("Wrong Values");
+    return 0;
+}
+
 
 - Write a C program to print the roots of Bhaskara’s formula from the given three floating
 numbers. Display a message if it is not possible to find the roots.
