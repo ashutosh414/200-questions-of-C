@@ -1399,8 +1399,97 @@ int main()
     printf("%i",result);
     return 0;
 }
-^^^71.Write a C program to find HCF (GCD) of two numbers.
-^^^72.Write a C program to find LCM of two numbers.
+71.Write a C program to find HCF (GCD) of two numbers.
+
+#include<stdio.h>
+
+int max1(int a,int b)
+{
+    if (a>=b) return a;
+    else if (b>a) return b;
+    return -1;
+}
+int min1(int a,int b)
+{
+    if (a<=b) return a;
+    else if (b<a) return b;
+    return -1;
+}
+int main()
+{
+    int num,num2,fnum,lnum,result=1;
+    printf("Enter the number: \n");
+    scanf("%d",&num);
+    printf("Enter the number: \n");
+    scanf("%d",&num2);
+    int copynum=num,copynum2=num2;
+    int min=min1(num,num2);
+    int count=2;
+    printf("The answer is \n");
+    while(count<=min)
+    {
+        if(copynum%count==0 && copynum2%count==0)
+        {
+            copynum/=count;
+            copynum2/=count;
+            result=result*count;
+            continue;
+        }
+        count++;
+        
+    }
+    printf("The HCF is : %d",result);
+
+    
+    return 0;
+}
+72.Write a C program to find LCM of two numbers.
+
+#include<stdio.h>
+
+int max1(int a,int b)
+{
+    if (a>=b) return a;
+    else if (b>a) return b;
+    return -1;
+}
+int min1(int a,int b)
+{
+    if (a<=b) return a;
+    else if (b<a) return b;
+    return -1;
+}
+int main()
+{
+    int num,num2,fnum,lnum,result=1;
+    printf("Enter the number: \n");
+    scanf("%d",&num);
+    printf("Enter the number: \n");
+    scanf("%d",&num2);
+    int copynum=num,copynum2=num2;
+    int min=min1(num,num2);
+    int max=max1(num,num2);
+    int count=2;
+    printf("The answer is \n");
+    while(count<=min)
+    {
+        if(copynum%count==0 && copynum2%count==0)
+        {
+            copynum/=count;
+            copynum2/=count;
+            result=result*count;
+            continue;
+        }
+        else if(copynum2==1 || copynum==1) break;
+        count++;
+    }
+    result=result*copynum2*copynum;
+    printf("The LCM is : %d",result);
+
+    
+    return 0;
+}
+
 73.Write a C program to check whether a number is Prime number or not.
 
 #include <stdio.h>
