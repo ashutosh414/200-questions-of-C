@@ -518,9 +518,69 @@ int main()
     
     return 0;
 }
-^^^30.Write a C program to input month number and print number of days in that
+30.Write a C program to input month number and print number of days in that
 month.
-^^^31.Write a C program to count total number of notes in given amount.
+#include <stdio.h>
+
+int main()
+{
+    int num;
+    printf("Input Month Number : ");
+    scanf("%d",&num);
+    
+    if(num==1 || num==3 || num==5 || num==7 || num==8 || num==10 || num==12) printf("days in %d Month is 31",num);
+    else if (num==2) printf("days can be 28/29 in 2nd month");
+    else if(num==4 || num==6 || num==9 || num==11) printf("days in %d month is 30",num);
+    else printf("Error");
+
+    return 0;
+}
+
+31.Write a C program to count total number of notes in given amount.
+
+#include <stdio.h>
+
+int main()
+{
+    int num,remnum=0,result=0;
+    printf("Input Amount Number : ");
+    scanf("%d",&num);
+    int copyNum=num;
+    printf("2000: %d\n",copyNum/2000);
+    result+=copyNum/2000;
+    copyNum=copyNum%2000;
+    printf("500: %d\n",copyNum/500);
+    result+=copyNum/500;
+    copyNum=copyNum%500;
+    printf("200: %d\n",copyNum/200);
+    result+=copyNum/200;
+    copyNum=copyNum%200;
+    printf("100: %d\n",copyNum/100);
+    result+=copyNum/100;
+    copyNum=copyNum%100;
+    printf("50: %d\n",copyNum/50);
+    result+=copyNum/50;
+    copyNum=copyNum%50;
+    printf("20: %d\n",copyNum/20);
+    result+=copyNum/20;
+    copyNum=copyNum%20;
+    printf("10: %d\n",copyNum/10);
+    result+=copyNum/10;
+    copyNum=copyNum%10;
+    printf("5: %d\n",copyNum/5);
+    result+=copyNum/5;
+    copyNum=copyNum%5;
+    printf("2: %d\n",copyNum/2);
+    result+=copyNum/2;
+    copyNum=copyNum%2;
+    printf("1: %d\n",copyNum/1);
+    result+=copyNum/1;
+    
+    printf("Total Notes = %d",result);
+    return 0;
+}
+
+
 32.Write a C program to input angles of a triangle and check whether triangle is
 valid or not.
 #include <stdio.h>
@@ -579,7 +639,21 @@ int main()
     return 0;
 }
 
-**36.Write a C program to calculate profit or loss.
+36.Write a C program to calculate profit or loss.
+#include<stdio.h>
+int main()
+{
+    int sPrice,cPrice;
+    printf("Enter the cost Price: \n");
+    scanf("%d",&cPrice);
+    printf("Enter the Selling Price: \n");
+    scanf("%d",&sPrice);
+    if(sPrice- cPrice >0) printf("profit of %d rs.",sPrice- cPrice);
+    else if(sPrice - cPrice ==0) printf("No Profit");
+    else if(sPrice - cPrice <0) printf("loss of %d rs.",cPrice - sPrice);
+    else printf("Invalid input!");
+    return 0;
+}
 37.Write a C program to input marks of five subjects Physics, Chemistry, Biology,
 Mathematics and Computer. Calculate percentage and grade according to
 following:
@@ -611,11 +685,37 @@ int main()
     return 0;
 }
 
-^^^38.Write a C program to input basic salary of an employee and calculate its Gross
+38.Write a C program to input basic salary of an employee and calculate its Gross
 salary according to following:
 Basic Salary <= 10000 : HRA = 20%, DA = 80%
 Basic Salary <= 20000 : HRA = 25%, DA = 90%
 Basic Salary > 20000 : HRA = 30%, DA = 95%
+
+#include <stdio.h>
+
+int main()
+{
+    int num,remnum=0,result=0;
+    float gSalary;
+    printf("Input Salary : ");
+    scanf("%d",&num);
+    if (num<=10000)
+    {
+        gSalary=num+num*20/100+num*80/100;
+    }
+    else if (num<=20000)
+    {
+        gSalary=num+num*25/100+num*90/100;
+    }
+    else if (num>20000)
+    {
+        gSalary=num+num*30/100+num*95/100;
+    }
+    
+    printf("Gross Salary = %0.2f",gSalary);
+    return 0;
+}
+
 39.Write a C program to input electricity unit charges and calculate total electricity
 bill according to the given condition:
 For first 50 units Rs. 0.50/unit
@@ -623,6 +723,26 @@ For next 100 units Rs. 0.75/unit
 For next 100 units Rs. 1.20/unit
 For unit above 250 Rs. 1.50/unit
 An additional surcharge of 20% is added to the bill
+
+#include <stdio.h>
+
+int main()
+{
+    int num,remnum=0,result=0;
+    float total;
+    printf("Input Electricity Unit : ");
+    scanf("%d",&num);
+    if(num<=50) total=num*0.5;
+    else if(num<=150) total=50*0.5+(num-50)*0.75;
+    else if(num<=250) total=50*0.5+100*0.75+(num-150)*1.2;
+    else if(num>250) total=50*0.5+100*0.75+100*1.2+(num-250)*1.5;
+    
+    total=total+total*20/100;
+    
+    printf("Total Charge = %0.2f",total);
+    return 0;
+}
+
 40.Write a C program to print day of week name using switch case.
 
 #include<stdio.h>
@@ -660,15 +780,225 @@ int main()
     
     return 0;
 }
-^^^41.Write a C program print total number of days in a month using switch case.
+
+
+41.Write a C program print total number of days in a month using switch case.
+
+#include<stdio.h>
+int main()
+{
+    int monthNum;
+    printf("Enter the Month Number: \n");
+    scanf("%i",&monthNum);
+    switch (monthNum)
+    {
+        case 1:
+        printf("31");
+        break;
+        case 2:
+        printf("28/29");
+        break;
+        case 3:
+        printf("31");
+        break;
+        case 4:
+        printf("30");
+        break;
+        case 5:
+        printf("31");
+        break;
+        case 6:
+        printf("30");
+        break;
+        case 7:
+        printf("31");
+        break;
+        case 8:
+        printf("31");
+        break;
+        case 9:
+        printf("30");
+        break;
+        case 10:
+        printf("31");
+        break;
+        case 11:
+        printf("30");
+        break;
+        case 12:
+        printf("31");
+        break;
+        default:
+        printf("Error");
+    }
+    
+    return 0;
+}
+
+
 42.Write a C program to check whether an alphabet is vowel or consonant using
 switch case.
+
+#include<stdio.h>
+int main()
+{
+    char ch;
+    printf("Enter the alphabet: \n");
+    scanf("%c",&ch);
+    switch (ch)
+    {
+        case 'a': case 'e': case 'i': case 'o': case 'u':
+        printf("Vowel");
+        break;
+        default:
+        if(ch>='a' && ch<='z') printf("Consonant");
+        else printf("Invalid input!");
+    }
+    
+    return 0;
+}
 43.Write a C program to find maximum between two numbers using switch case.
+#include <stdio.h>
+
+int main()
+{
+    int num1,num2;
+    printf("Input Number 1: ");
+    scanf("%d",&num1);
+    printf("Input Number 2: ");
+    scanf("%d",&num2);
+    switch((num1>num2)-(num2>num1))
+    {
+        case 1:
+        printf("%d is max",num1);
+        break;
+        case -1:
+        printf("%d is max",num2);
+        break;
+        case 0:
+        printf("Equal");
+        break;
+        default:
+        printf("Error");
+    }
+    return 0;
+}
+
 44.Write a C program to check whether a number is even or odd using switch case.
+
+#include <stdio.h>
+
+int main()
+{
+    int num1;
+    printf("Input Number 1: ");
+    scanf("%d",&num1);
+    switch(num1%2)
+    {
+        case 0:
+        printf("%d is even",num1);
+        break;
+        case 1:
+        printf("%d is odd",num1);
+        break;
+        default:
+        printf("Error");
+    }
+    return 0;
+}
+
 45.Write a C program to check whether a number is positive, negative or zero using
 switch case.
+
+#include <stdio.h>
+
+int main()
+{
+    int num1,num2;
+    printf("Input Number 1: ");
+    scanf("%d",&num1);
+
+    switch((num1>0)-(num1<0))
+    {
+        case 1:
+        printf("%d is positive",num1);
+        break;
+        case -1:
+        printf("%d is negative",num1);
+        break;
+        case 0:
+        printf("%d is zero",num1);
+        break;
+        default:
+        printf("Error");
+    }
+    return 0;
+}
+
 46.Write a C program to find roots of a quadratic equation using switch case.
+
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    float a,b,c,discriminant,root1,root2;
+    printf("Enter the num1, num2 and num3.\n");
+    scanf("%f%f%f",&a,&b,&c);
+    
+    discriminant=b*b-4*a*c;
+    
+    switch((discriminant>0)-(discriminant<0))
+    {
+        case 1:
+        root1=(-b +sqrt(discriminant))/(2*a);
+        root2=(-b -sqrt(discriminant))/(2*a);
+        printf("The roots are real and distinct: %.2f and %.2f\n", root1, root2);
+        break;
+        case -1:
+        printf("The roots are complex and imaginary.\n");
+        break;
+        case 0:
+        root1 = -b / (2 * a);
+        printf("The roots are real and equal: %.2f\n", root1);
+        break;
+        default:
+        printf("Error");
+    }
+    return 0;
+}
+
+
 47.Write a C program to create Simple Calculator using switch case.
+#include <stdio.h>
+
+int main()
+{
+    int num1,num2;
+    char ch;
+    printf("Input Number 1: ");
+    scanf("%d",&num1);
+    printf("Input Number 2: ");
+    scanf("%d",&num2);
+    printf("Input operator: ");
+    scanf(" %c",&ch);
+    switch(ch)
+    {
+        case '+':
+        printf("%d + %d = %d",num1,num2,num1+num2);
+        break;
+        case '-':
+        printf("%d - %d = %d",num1,num2,num1+num2);
+        break;
+        case '*':
+        printf("%d * %d = %d",num1,num2,num1+num2);
+        break;
+        case '/':
+        printf("%d / %d = %d",num1,num2,num1+num2);
+        break;
+    }
+    return 0;
+}
+
 48.Write a C program to print all natural numbers from 1 to n. - using while loop
 
 #include <stdio.h>
@@ -865,7 +1195,49 @@ int main()
     printf("the sum of first and last digit is %d\n",num%10+first);
     return 0;
 }
-^^^60.Write a C program to swap first and last digits of a number.
+
+60.Write a C program to swap first and last digits of a number.
+
+#include<stdio.h>
+
+int countDigit(int num)
+{
+    int count=0;
+    while(num>0)
+    {
+        count++;
+        num/=10;
+    }
+    return count;
+}
+
+int multiple(int num)
+{
+    int count=countDigit(num);
+    int result=1;
+    for(int i=1;i<count;i++)
+    {
+        result=result*10;
+    }
+    return result;
+}
+int main()
+{
+    int num,fnum,lnum,result=0;
+    printf("Enter the number: \n");
+    scanf("%d",&num);
+    int copynum=num;
+    lnum=copynum%10;
+    int multiple1=multiple(copynum);
+    fnum=copynum/multiple1;
+    copynum=copynum+fnum-lnum;
+    copynum=copynum%multiple1+lnum*multiple1;
+
+    printf("the answer is: %d",copynum);
+    
+    return 0;
+}
+
 61.Write a C program to calculate sum of digits of a number.
 #include <stdio.h>
 
