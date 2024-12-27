@@ -1339,6 +1339,76 @@ int main()
     return 0;
 }
 ^^^66.Write a C program to enter a number and print it in words.
+
+#include <stdio.h>
+
+int word(int num)
+{
+    int copynum=num,y=10000000,count=4;
+    char *unit[]={""," one"," two"," three"," four"," five"," six"," seven"," eight"," nine"};
+    char *tens[]={""," ten"," twenty"," thirty"," forty"," fifty"," sixty"," seventy"," eighty"," ninty"};
+    char *double1[]={""," eleven"," twelve"," thirteen"," fourteen"," fifteen"," sixteen"," seventeen"," eighteen"," nineteen"};
+    char *units[]={""," hundred"," thousand"," lakh"," crore"};
+    if (copynum>999999999) return 0;
+    while(copynum>1000)
+    {
+        if(copynum/y<=0)
+        {
+            y=y/100;
+            count=count-1;
+            continue;
+        }
+        int scopynum=copynum/y;
+        if(scopynum<100)
+        {
+            if(scopynum<20 && scopynum>10)
+            {
+                printf("%s",double1[scopynum-10]);
+            }
+            else
+            {
+                printf("%s%s",tens[scopynum/10],unit[scopynum%10]);
+            }
+            printf("%s",units[count]);
+        }
+        copynum%=y;
+    }
+
+            if(copynum/100>0)
+            {
+                printf("%s%s",unit[copynum/100],units[1]);
+                copynum=copynum%100;
+            }
+            if(copynum>=20)
+            {
+                printf("%s%s",tens[copynum/10],unit[copynum%10]);
+            }
+            else if(copynum>=11 && copynum<=19)
+            {
+                printf("%s",double1[copynum-10]);
+            }
+            // else if(copynum==10)
+            // {
+            //     printf("%s",tens[copynum/10]);
+            // }
+            else if(copynum>=1 && copynum<=10)
+            {
+                printf("%s%s",tens[copynum/10],unit[copynum]);
+            }
+        
+
+    return 0;
+}
+
+int main()
+{
+    int num;
+    printf("Enter the number: ");
+    scanf("%d",&num);
+    word(num);
+    return 0;
+}
+
 67.Write a C program to print all ASCII character with their values.
 #include <stdio.h>
 
